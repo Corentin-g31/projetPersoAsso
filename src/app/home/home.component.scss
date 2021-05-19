@@ -1,0 +1,221 @@
+$color1: #CB4C3B;
+$widthcontainer : 1000px;
+$font: 'Nunito', sans-serif;
+$font2: 'Indie Flower', cursive;
+
+
+
+// les h2 ont une taille en em même si je mets des px, changer ça
+// BUTTONS
+.button{
+  color:$color1;
+  font-family: $font;
+  text-decoration: none;
+  border: 2px solid $color1;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.button:hover{
+  background-color: $color1;
+  color:white;
+}
+
+
+//Presentation
+
+section[role="presentation"]{
+  padding-top: 30px;
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+
+
+  #presentation{
+    display: flex;
+    p{
+      font-family: $font;
+      color: $color1;
+      max-width: 65%;
+      font-size: 25px;
+      font-family: $font;
+      line-height: 50px;
+      font-weight: 500;
+    }
+
+    img{
+      max-width: 35%;
+    }
+  }
+
+  p{
+    font-family: $font;
+    color: $color1;
+    font-weight: 900;
+    font-size: 25px;
+  }
+
+}
+
+
+section[role="missions"]{
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  height: 500px;
+
+  .blocg-mission{
+    width: 50%;
+    color: $color1;
+    text-align: center;
+    font-family: $font2;
+    font-size: 40px!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .blocd-mission{
+    width: 50%;
+    background-color: $color1;
+    text-align: center;
+    color: white;
+    font-family: $font;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+
+    .content-blocd-mission{
+      width: 80%;
+    }
+  }
+}
+
+section[role="values"]{
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  height: 500px;
+
+  .blocd-values{
+    width: 50%;
+    color: $color1;
+    text-align: center;
+    font-family: $font2;
+    font-size: 40px!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .blocg-values{
+    width: 50%;
+    background-color: $color1;
+    text-align: center;
+    color: white;
+    font-family: $font;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+
+    .content-blocg-values{
+      width: 80%;
+    }
+  }
+}
+
+section[role="support"]{
+
+  h2{
+    color: $color1;
+    text-align: center;
+    font-family: $font2;
+    font-size: 40px!important;
+  }
+  .blocs-support{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    height: 500px;
+
+  }
+
+  .blocg-support{
+    width: 50%;
+    color: $color1;
+    text-align: center;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+  }
+
+
+  .blocd-support{
+    width: 50%;
+    background-color: $color1;
+    text-align: center;
+    color: white;
+    font-family: $font;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .content-blocg-values{
+      width: 80%;
+    }
+  }
+
+}
+
+.button-full{
+  color:white;
+  font-family: $font;
+  text-decoration: none;
+  border: 2px solid $color1;
+  padding: 15px 35px ;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: 0.5s;
+  background-color: $color1;
+  font-weight: 700;
+
+}
+
+.button-full:hover{
+  background-color: white;
+  color:$color1;
+  cursor: pointer;
+}
+
+.button-empty{
+  color:$color1;
+  font-family: $font;
+  text-decoration: none;
+  border: 2px solid $color1;
+  padding: 15px 35px ;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: 0.5s;
+  background-color: white;
+  font-weight: 700;
+
+}
+
+.button-empty:hover{
+  background-color: $color1;
+  color:white;
+  cursor: pointer;
+  border: 2px solid white;
+}

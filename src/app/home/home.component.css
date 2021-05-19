@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-container {
+  max-height: 400px;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-background {
+  background-color: #444343;
+}
+
+.blur-out {
+  -webkit-animation: blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;
+          animation: blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;
+}
+
+.logo-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@-webkit-keyframes blur-out {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+
+@keyframes blur-out {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+
+.container {
+  font-family: "Roboto", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container h2 {
+  padding: 20px 0 12px 0;
+  margin-bottom: 20px;
+  color: #264653;
+  position: relative;
+  display: inline-block;
+}
+
+.container h2::after {
+  content: "";
+  background-color: #264653;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+}
+
+.container .content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.container .content p {
+  line-height: 1.6;
+  color: #2a9d8f;
+  line-height: 30px;
+  font-weight: 500;
+  padding-bottom: 30px;
+}
+
+.container .content h1 {
+  color: #264653;
+}
+
+.container li {
+  list-style-type: none;
+}
+
+.cards {
+  padding-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-family: "Roboto", sans-serif;
+}
+
+.cards .flip-card {
+  width: 265px;
+  height: 300px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  margin: 20px;
+}
+
+.cards .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.cards .flip-card:hover .flip-card-inner {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.cards .flip-card-front, .cards .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.cards .flip-card-front {
+  background-color: #e76f51;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+}
+
+.cards .flip-card-front p {
+  font-size: 17px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.flip-card-back {
+  background-color: #f4a261;
+  color: white;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+
+.fas, .far {
+  color: white;
+  height: 30px;
+  width: 60px;
+  margin-top: 27%;
+  margin-bottom: 45px;
+}
+
+.button {
+  color: #e76f51;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  border: 2px solid #e76f51;
+  padding: 10px 15px 10px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #e76f51;
+  color: white;
+}
+
+#contact-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+  padding-bottom: 70px;
+}
+/*# sourceMappingURL=home.component.css.map */

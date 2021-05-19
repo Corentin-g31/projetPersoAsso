@@ -1,0 +1,22 @@
+$widthcontainer : 1000px;
+$font: 'Nunito', sans-serif;
+$color1: #CB4C3B;
+img{
+  border-radius: 1rem;
+}
+body{
+  font-family: $font;
+
+  text-decoration: none;
+}
+h4{
+  font-size: 20px;
+  color: $color1;
+  font-weight: 900;
+}
+a{
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+  font-color: inherit;
+}

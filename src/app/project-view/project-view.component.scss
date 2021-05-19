@@ -1,0 +1,15 @@
+$widthcontainer : 1000px;
+$font: 'Nunito', sans-serif;
+
+.container{
+  max-width: $widthcontainer;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
+li{
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}

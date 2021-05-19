@@ -1,0 +1,54 @@
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.container h2 {
+  padding: 20px 0 12px 0;
+  margin-bottom: 20px;
+  color: #264653;
+  position: relative;
+  display: inline-block;
+}
+
+.container h2::after {
+  content: "";
+  background-color: #264653;
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+}
+
+form {
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 800px;
+}
+
+.input {
+  font-family: "Roboto", sans-serif;
+  color: #264653;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+input {
+  margin-top: 20px;
+}
+
+select {
+  margin-top: 25px;
+}
+/*# sourceMappingURL=contact.component.css.map */

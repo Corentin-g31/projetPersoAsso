@@ -1,0 +1,20 @@
+$font: 'Nunito', sans-serif;
+$color1: #CB4C3B;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+h1{
+  font-size: 20px;
+align-self: center;
+  color: white;
+}
+
+footer{
+  background-color: $color1;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}

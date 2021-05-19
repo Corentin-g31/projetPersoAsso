@@ -1,0 +1,32 @@
+<app-header-back></app-header-back>
+
+<div class="container">
+  <div class="title-add"><h3>Liste des Membres</h3> <a [routerLink]="['addMember']" class="button-full">Ajouter un
+    membre</a></div>
+
+
+  <ul class="cards-list">
+    <li *ngFor="let member of members | async; let i = index">
+      <div class="card">
+        <div class="card-img">
+          <img src="{{ member.photo}}" style="max-width:300px;max-height:250px" alt="photo membre">
+        </div>
+        <div class="card-presentation">
+          <p>Nom: {{ member.surname }}</p>
+          <p>Prénom : {{ member.name }}</p>
+          <p>n°tel : {{ member.phone }}</p>
+          <p>email : {{ member.email }}</p>
+          <p>Description
+            :  {{ (member.description.length > 15) ? (member.description | slice:0:15) + '...' : (member.description) }}</p>
+
+          <div class="buttons-card">
+            <button (click)="onDeleteMember(member)" id="deleteMemberBtn">Supprimer</button>
+            <button [routerLink]="['editMember', member.id]" id="editMemberBtn">Modifier</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<app-footer></app-footer>

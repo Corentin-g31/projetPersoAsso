@@ -1,0 +1,53 @@
+$color1: #CB4C3B;
+$widthcontainer: 80%;
+$font: 'Nunito', sans-serif;
+$font2: 'Indie Flower', cursive;
+
+
+.container {
+  max-width: $widthcontainer;
+  margin: 0 auto;
+}
+
+h3 {
+  font-family: $font;
+  color: $color1;
+  padding-right: 20px;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+
+}
+
+
+.contact-card{
+  width: 100%;
+  border: 2px solid #a7a6a6;
+  list-style: none;
+  p{
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+  }
+
+  button{
+    margin-top: 10px;
+    border:none;
+    background-color: inherit;
+    font-family: $font;
+    font-size: 15px;
+
+  }
+
+  button:hover{
+    cursor: pointer;
+  }
+
+  #deleteContactBtn{
+    color: #FB0000;
+  }
+
+  .btn-center{
+    text-align: center;
+  }
+}

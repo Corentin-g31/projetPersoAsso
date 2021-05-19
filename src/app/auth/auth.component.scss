@@ -1,0 +1,76 @@
+$font: 'Nunito', sans-serif;
+$color1: #CB4C3B;
+
+* {
+  font-family: $font;
+  color: $color1;
+  font-size: 20px;
+}
+
+
+.container{
+  height: 100vh;
+  border: none;
+
+  .footer{
+    align-self: flex-end;
+    height:10%;
+  }
+
+
+
+}
+.container-form {
+  height: 90%;
+  display: flex;
+
+
+  form {
+
+    margin: 0 auto;
+    align-self: center;
+    width: 33%;
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}
+
+.form-buttons {
+  text-align: center;
+  margin-top: 15px;
+
+  .button-full {
+    color: white;
+    font-family: $font;
+    text-decoration: none;
+    border: 2px solid $color1;
+    padding: 7px 45px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: 0.5s;
+    background-color: $color1;
+    font-weight: 700;
+
+  }
+
+  .button-full:hover {
+    background-color: white;
+    color: $color1;
+    cursor: pointer;
+  }
+
+}

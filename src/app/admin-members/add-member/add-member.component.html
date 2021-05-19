@@ -1,0 +1,25 @@
+
+<h5>Ajout d'un membre</h5>
+<form [formGroup]="addMemberForm" (ngSubmit)="onAddMember()">
+  <label>Nom</label>
+  <input type="text" class="form-control" formControlName="surname" >
+  <label>Prénom</label>
+  <div *ngIf=" addMemberForm.controls['surname'].invalid && ( addMemberForm.controls['surname'].dirty ||  addMemberForm.controls['surname'].touched)" class="alert">
+    <!--    <div *ngIf="memberForm.controls['surname'].errors.required">-->
+    <!--      Please enter username-->
+    <!--    </div>-->
+  </div>
+  <input type="text" class="form-control" formControlName="name" >
+  <label>Description</label>
+  <textarea  formControlName="description"></textarea>
+  <label>N° Téléphone</label>
+  <input type="tel" class="form-control" formControlName="phone" >
+  <label>Email</label>
+  <input type="email" class="form-control" formControlName="email" >
+  <div class="image-upload">
+    <img [src]="imageSrc" style="max-width:300px;max-height:300px"/>
+    <input type="file" accept="image/*" (change)="handleInputChange($event)" />
+  </div>
+  <button  type="submit" [disabled]=" addMemberForm.invalid" >Sauvegarder</button>
+</form>
+

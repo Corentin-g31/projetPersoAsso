@@ -1,0 +1,44 @@
+$widthcontainer: 1000px;
+$font: 'Nunito', sans-serif;
+$color1: #CB4C3B;
+
+* {
+  font-family: $font;
+}
+
+.container {
+  max-width: $widthcontainer;
+  margin: 0 auto;
+}
+
+a {
+  font-size: 20px;
+  color: $color1;
+  font-family: $font;
+  text-decoration: none;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 50px;
+
+  h2 {
+    align-self: center;
+    color: $color1;
+    font-weight: 900;
+  }
+
+  img {
+    border-radius: 30% 70% 20% 40%;
+    width: 50%;
+  }
+}
+
+.project-description {
+  p {
+    color: $color1;
+    font-size: 20px;
+  }
+}
+

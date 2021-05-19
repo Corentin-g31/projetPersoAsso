@@ -1,0 +1,138 @@
+* {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+header li {
+  margin: 5px;
+}
+
+header a {
+  color: #e76f51;
+  font-weight: 700;
+  font-size: 45px;
+}
+
+header p {
+  color: #f4a261;
+  font-style: italic;
+  font-size: 20px;
+}
+
+header .fa {
+  padding: 12px;
+  font-size: 15px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+header .fa:hover {
+  opacity: 0.7;
+}
+
+header .fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+header .fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+header .fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  background-color: #e9c46a;
+  color: #e9c46a;
+}
+
+.active-link {
+  -webkit-box-shadow: 0 3px 0 #2a9d8f;
+          box-shadow: 0 3px 0 #2a9d8f;
+}
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 150;
+  background-color: white;
+  -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav ul li {
+  padding: 18px;
+}
+
+nav ul li a {
+  padding: 15px;
+  border-bottom: 2px solid transparent;
+}
+
+nav ul li #home-nav {
+  color: #fc8a00;
+}
+
+nav ul li #whoAreWe-nav {
+  color: #b16bb4;
+}
+
+nav ul li #intervention-nav {
+  color: #28b7ae;
+}
+
+nav ul li #contact-nav {
+  color: #d73300;
+}
+
+nav ul li:hover a {
+  -webkit-box-shadow: 0 3px 0 #2a9d8f;
+          box-shadow: 0 3px 0 #2a9d8f;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+/*# sourceMappingURL=header.component.css.map */

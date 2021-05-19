@@ -1,0 +1,60 @@
+$color1: #CB4C3B;
+$color-bg: #F9EAE8;
+$widthcontainer : 1000px;
+$font: 'Nunito', sans-serif;
+$font2: 'Indie Flower', cursive;
+
+
+
+
+
+section[role="project"]{
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 80px;
+
+
+    h2{
+        font-family: $font2;
+        color:$color1;
+        font-size: 40px;
+        text-align: end;
+        padding-right: 10%;
+    }
+
+    p{
+        font-family: $font;
+        color:$color1;
+        font-size: 25px;
+        text-align: center;
+        padding-bottom: 70px;
+        line-height: 50px;
+    }
+
+    #text-project{
+        text-align: center;
+        padding-top: 50px;
+    }
+
+}
+
+.button-full{
+    color:white;
+    font-family: $font;
+    text-decoration: none;
+    border: 2px solid $color1;
+    padding: 15px 35px ;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: 0.5s;
+    background-color: $color1;
+    font-weight: 700;
+    
+  }
+  
+  .button-full:hover{
+    background-color: white;
+    color:$color1;
+    cursor: pointer;
+  }
+  

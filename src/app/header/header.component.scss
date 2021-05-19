@@ -1,0 +1,60 @@
+$color1: #CB4C3B;
+$widthcontainer: 1000px;
+$font: 'Nunito', sans-serif;
+
+* {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: $font;
+}
+
+//HEADER
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+//LOGO
+
+.logo {
+  img {
+    width: 350px;
+  }
+}
+
+//NAVIGATION
+
+.active-link {
+  box-shadow: 0 3px 0 $color1;
+}
+
+nav ul {
+  top: 0;
+  display: flex;
+  padding-right: 50px;
+
+
+  transform: translateY(-50px);
+
+
+  li {
+    padding: 0 15px 0 8px;
+
+    a {
+      font-size: 20px;
+      color: $color1
+    }
+  }
+
+
+  li:hover a {
+    box-shadow: 0 3px 0 $color1;
+    transition: all .3s ease;
+  }
+}
