@@ -1,0 +1,63 @@
+$color1: #CB4C3B;
+$color-bg: #F9EAE8;
+$widthcontainer : 1000px;
+$font: 'Nunito', sans-serif;
+$font2: 'Indie Flower', cursive;
+
+
+.fond{
+    margin-top: 200px;
+    background-color: $color-bg;
+    padding: 50px;
+}
+
+
+
+section[role="whoAreWe"]{
+    max-width: 80%;
+    margin: 0 auto;
+
+
+    h2{
+        font-family: $font2;
+        color:$color1;
+        font-size: 40px;
+        padding-left: 10%;
+        
+    }
+
+    p{
+        font-family: $font;
+        color:$color1;
+        font-size: 25px;
+        text-align: center;
+        padding-bottom: 70px;
+        line-height: 50px;
+    }
+
+    #text-whoAreWe{
+        text-align: center;
+        padding-top: 50px;
+    }
+
+}
+
+.button-full{
+    color:white;
+    font-family: $font;
+    text-decoration: none;
+    border: 2px solid $color1;
+    padding: 15px 35px ;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: 0.5s;
+    background-color: $color1;
+    font-weight: 700;
+    
+  }
+  
+  .button-full:hover{
+    background-color: white;
+    color:$color1;
+    cursor: pointer;
+  }
