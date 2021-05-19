@@ -1,25 +1,105 @@
+<app-header-back></app-header-back>
 
-<h5>Ajout d'un membre</h5>
-<form [formGroup]="addMemberForm" (ngSubmit)="onAddMember()">
-  <label>Nom</label>
-  <input type="text" class="form-control" formControlName="surname" >
-  <label>Prénom</label>
-  <div *ngIf=" addMemberForm.controls['surname'].invalid && ( addMemberForm.controls['surname'].dirty ||  addMemberForm.controls['surname'].touched)" class="alert">
-    <!--    <div *ngIf="memberForm.controls['surname'].errors.required">-->
-    <!--      Please enter username-->
-    <!--    </div>-->
-  </div>
-  <input type="text" class="form-control" formControlName="name" >
-  <label>Description</label>
-  <textarea  formControlName="description"></textarea>
-  <label>N° Téléphone</label>
-  <input type="tel" class="form-control" formControlName="phone" >
-  <label>Email</label>
-  <input type="email" class="form-control" formControlName="email" >
-  <div class="image-upload">
-    <img [src]="imageSrc" style="max-width:300px;max-height:300px"/>
-    <input type="file" accept="image/*" (change)="handleInputChange($event)" />
-  </div>
-  <button  type="submit" [disabled]=" addMemberForm.invalid" >Sauvegarder</button>
-</form>
+<div class="container">
 
+  <h5>Ajout du membre : <span style="text-decoration: underline;">{{ member.surname }} {{ member.name }}</span>
+  </h5>
+
+  <form [formGroup]="createMemberForm" (ngSubmit)="onAddMember()">
+    <div class="form-block">
+      <label>Nom</label>
+      <div class="form-input" >
+        <input type="text" class="form-control" formControlName="surname" [(ngModel)]="member.surname">
+        <div class="error-form" *ngIf="surname && surname.invalid && (surname.dirty || surname.touched)">
+          <div *ngIf="surname.hasError('required')">
+            Le nom est obligatoire.
+          </div>
+          <div *ngIf="surname.hasError('pattern')">
+            Le nom ne peut contenir que des lettres.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <label>Prénom</label>
+      <div class="form-input">
+        <input type="text" class="form-control" formControlName="name" [(ngModel)]="member.name">
+        <div class="error-form" *ngIf=" name && name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.hasError('required')">
+            Le prénom est obligatoire.
+          </div>
+          <div *ngIf="name.hasError('pattern')">
+            Le prénom ne peut contenir que des lettres.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <label>Description</label>
+      <div class="form-input">
+        <textarea row="4" formControlName="description" [(ngModel)]="member.description"></textarea>
+        <div class="error-form" *ngIf=" description && description.invalid && (description.dirty || description.touched)">
+          <div *ngIf="description.hasError('required')">
+            La description est obligatoire.
+          </div>
+          <div *ngIf="description.hasError('maxlength')">
+            La description est trop longue.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <label>N° Téléphone</label>
+      <div class="form-input">
+        <input type="tel" class="form-control" formControlName="phone" [(ngModel)]="member.phone">
+        <div class="error-form" *ngIf=" phone && phone.invalid && (phone.dirty || phone.touched)">
+          <div *ngIf="phone.hasError('pattern')">
+            Le numéro n'est pas valide.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-block">
+      <label>Email</label>
+      <div class="form-input">
+        <input type="email" class="form-control" formControlName="email" [(ngModel)]="member.email">
+        <div class="error-form" *ngIf=" email && email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.hasError('email')">
+            L'email n'est pas valide.
+          </div>
+          <div *ngIf="email.hasError('required')">
+            L'email est obligatoire.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-upload">
+      <div style="align-self: center;">
+        <label class="custom-file-upload button-empty">
+          Ajouter une photo
+          <input maxFileSize="5" formControlName="photo" type="file" accept="image/*" (change)="handleInputChange($event)"/>
+        </label>
+      </div>
+      <div class="img-block">
+        <p *ngIf="imageSrc.length===0">Photo</p>
+        <img [src]="imageSrc" style="max-width:250px;height:250px"/>
+      </div>
+    </div>
+
+    <div class="btn-submit">
+      <a [routerLink]="['/adminMembers']" style="color:#FB0000">
+        Annuler
+      </a>
+      <button class="button-empty "type="submit" [disabled]="createMemberForm.invalid">Ajouter</button>
+    </div>
+
+  </form>
+
+</div>
+
+<app-footer></app-footer>

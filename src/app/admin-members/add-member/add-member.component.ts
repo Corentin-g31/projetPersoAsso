@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MembersService} from '../../services/members.service';
-import { Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Member} from '../../model/member.model';
 
@@ -11,24 +11,54 @@ import {Member} from '../../model/member.model';
 })
 export class AddMemberComponent implements OnInit {
   member: Member;
-  addMemberForm: FormGroup;
+  createMemberForm: FormGroup;
   imageSrc: string = '';
 
-  constructor(private membersService: MembersService, private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private membersService: MembersService, private route: ActivatedRoute, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.initForm()
+
+    this.initForm();
+
+    // @ts-ignore
+    this.member = new Member();
+
+
   }
 
+  get surname() { return this.createMemberForm.get('surname'); }
+  get name() {return this.createMemberForm.get('name');}
+  get description() {return this.createMemberForm.get('description');}
+  get phone() {return this.createMemberForm.get('phone');}
+  get email() {return this.createMemberForm.get('email');}
+
   initForm(){
-    this. addMemberForm = this.formBuilder.group({
-      surname: ['', Validators.required],
-      name: ['', Validators.required],
-      description: ['', Validators.required],
+    this.createMemberForm = this.formBuilder.group({
+      surname: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      name: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      description: ['', [Validators.required,Validators.maxLength(130)]],
       phone: ['', Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
-      email: ['', Validators.email],
+      email: ['', [Validators.email,Validators.required]],
     });
   }
+
+  onAddMember() {
+    const formValue = this.createMemberForm.value;
+    const changeMember = new Member(
+      formValue['surname'],
+      formValue['name'],
+      formValue['description'],
+      formValue['phone'],
+      formValue['email'],
+      formValue['photo']
+    )
+    if(this.imageSrc != ""){
+      changeMember.photo = this.imageSrc;
+    }
+    changeMember.id= this.member.id;
+    this.membersService.addMember(changeMember)
+  }
+
 
   // @ts-ignore
   handleInputChange(e) {
@@ -39,30 +69,16 @@ export class AddMemberComponent implements OnInit {
       alert('invalid format');
       return;
     }
-    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.onload = this.handleReaderLoaded.bind(this);
     reader.readAsDataURL(file);
   }
 
   // @ts-ignore
-  _handleReaderLoaded(e) {
+  handleReaderLoaded(e) {
     let reader = e.target;
     this.imageSrc = reader.result;
     console.log(this.imageSrc)
   }
 
-  onAddMember() {
-    const formValue = this.addMemberForm.value;
-    this.member = new Member(
-      formValue['surname'],
-      formValue['name'],
-      formValue['description'],
-      formValue['phone'],
-      formValue['email'],
-      ""
-    )
-    if(this.imageSrc != ""){
-     this.member.photo = this.imageSrc;
-    }
-    this.membersService.addMember(this.member);
-  }
+
 }
