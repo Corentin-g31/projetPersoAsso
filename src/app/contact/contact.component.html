@@ -2,21 +2,20 @@
 
 <div class="container">
     <h2>Contact</h2>
-    <form action="">
-    <input type="email" name="email" id="email" class="input" required placeholder="email">
+    <form action="" [formGroup]="createContactForm" (ngSubmit)="onAddContact()">
+    <input type="email" name="email" id="email" class="input" placeholder="email" formControlName="email">
 
-    <input type="phone" name="phone" id="phone" class="input"  placeholder="Numero de téléphone (facultatif)">
+    <input type="phone" name="phone" id="phone" class="input"  placeholder="Numero de téléphone (facultatif)" formControlName="phone">
 
 
-<!--    <select class="input" name="reason" id="">-->
-<!--        <option selected hidden>Pour quelle raison souhaitez vous nous contacter ?</option>-->
-<!--        <option value="benevolat">Demande de bénévolat</option>-->
-<!--        <option value="collect">Collecte de fond</option>-->
-<!--        <option value="partenariat">Partenariat</option>-->
-<!--        <option value="Autre">Autre</option>-->
-<!--    </select>-->
+    <select class="input" name="reason">
+        <option selected hidden>Pour quelle raison souhaitez vous nous contacter ?</option>
+        <option *ngFor="let category of categories | async"
+                value="{{category.id}}" >{{ category.name }}
+      </option>
+    </select>
 
-    <textarea class="input" name="text" id="" cols="30" rows="10" placeholder="Votre message"></textarea>
+    <textarea class="input" name="text" id="" cols="30" rows="10" placeholder="Votre message" formControlName="message"></textarea>
 
     </form>
 
