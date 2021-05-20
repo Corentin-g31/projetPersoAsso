@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 
-
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -22,23 +21,21 @@ export class AuthComponent implements OnInit {
     });
   }
 
-  login(){
+  login(): void {
     const val = this.form.value;
 
-    if (val.username && val.password){
+    if (val.username && val.password) {
       this.authService.login(val.username, val.password)
 
-      .subscribe(
-        ()=> {
-          this.authService.isAuth = true;
-          this.router.navigate(['/adminMembers'])
-        }
-      );
+        .subscribe(
+          () => {
+            this.authService.isAuth = true;
+            this.router.navigate(['/adminMembers']);
+          }
+        );
     }
   }
 
   ngOnInit(): void {
   }
-
-
 }

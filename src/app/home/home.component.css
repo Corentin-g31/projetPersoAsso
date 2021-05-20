@@ -3,17 +3,6 @@
   padding: 0;
 }
 
-.carousel-container {
-  max-height: 400px;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-background {
-  background-color: #444343;
-}
-
 .blur-out {
   -webkit-animation: blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;
           animation: blur-out 1.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) 1s both;

@@ -1,9 +1,12 @@
 <app-header-back></app-header-back>
 
 <div class="container">
-  <div class="title-add"><h3>Liste des Membres</h3> <a [routerLink]="['addMember']" class="button-full">Ajouter un
-    membre</a></div>
-
+  <div class="title-add">
+    <h3>Liste des Membres</h3>
+    <a [routerLink]="['addMember']" class="button-full">
+      Ajouter un membre
+    </a>
+  </div>
 
   <ul class="cards-list">
     <li *ngFor="let member of members | async; let i = index">
@@ -13,11 +16,11 @@
         </div>
         <div class="card-presentation">
           <p>Nom: {{ member.surname }}</p>
-          <p>Prénom : {{ member.name }}</p>
-          <p>n°tel : {{ member.phone }}</p>
-          <p>email : {{ member.email }}</p>
-          <p>Description
-            :  {{ (member.description.length > 15) ? (member.description | slice:0:15) + '...' : (member.description) }}</p>
+          <p>Prénom: {{ member.name }}</p>
+          <p>Tel: {{ member.phone }}</p>
+          <p>Email: {{ member.email }}</p>
+          <p>Description: {{ (member.description.length > 15) ? (member.description | slice:0:15) + '...' :
+            (member.description) }}</p>
 
           <div class="buttons-card">
             <button (click)="onDeleteMember(member)" id="deleteMemberBtn">Supprimer</button>
