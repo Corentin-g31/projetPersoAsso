@@ -7,7 +7,14 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prod": "ng build --production"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "ng lint",
+      "pre-push": "ng build --aot true"
+    }
   },
   "private": true,
   "dependencies": {
@@ -21,10 +28,7 @@
     "@angular/router": "~11.0.5",
     "@types/aos": "^3.0.3",
     "aos": "^2.3.4",
-    "boostrap": "^2.0.0",
-    "bootstrap": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
-    "ngx-owl-carousel-o": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -36,6 +40,7 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "husky": "^4.3.8",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.1.0",

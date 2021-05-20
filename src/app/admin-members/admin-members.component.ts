@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MembersService} from '../services/members.service';
-import {Member} from '../model/member.model';
-import {Observable} from 'rxjs';
+import { MembersService } from '../services/members.service';
+import { Member } from '../model/member.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-admin-members',
@@ -9,28 +9,28 @@ import {Observable} from 'rxjs';
   styleUrls: ['./admin-members.component.scss']
 })
 export class AdminMembersComponent implements OnInit {
-  members:Observable<Member[]>;
+  members: Observable<Member[]>;
 
-  constructor(private membersService : MembersService) { }
+  constructor(private membersService: MembersService) { }
 
   ngOnInit(): void {
-    this.members = this.membersService.getMembers()
+    this.members = this.membersService.getMembers();
   }
 
-  onDeleteMember(member: Member) {
-    if(confirm("Etes vous sur de vouloir supprimer " +member.surname + " " +member.name + " ?")){
+  onDeleteMember(member: Member): void {
+    if (confirm('Etes vous sur de vouloir supprimer ' + member.surname + ' ' + member.name + ' ?')) {
       this.membersService.removeMember(member)
         .subscribe(
-          (data)=>{
-            console.log(data)
+          (data) => {
+            console.log(data);
           },
-          (e)=>{
+          (e) => {
             console.log(e);
           },
-          ()=>{
-            this.members = this.membersService.getMembers()
+          () => {
+            this.members = this.membersService.getMembers();
           }
-        )
+        );
     }
   }
 }
