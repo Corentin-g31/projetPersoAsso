@@ -82,7 +82,7 @@
       <div style="align-self: center;">
         <label class="custom-file-upload button-empty">
           Ajouter une photo
-          <input maxFileSize="5" formControlName="photo" type="file" accept="image/*" (change)="handleInputChange($event)"/>
+          <input maxFileSize="5"  type="file" accept="image/*" (change)="handleInputChange($event)"/>
         </label>
       </div>
       <div class="img-block">
@@ -90,6 +90,8 @@
         <img [src]="imageSrc" style="max-width:250px;height:250px"/>
       </div>
     </div>
+
+    <div class="error" *ngIf="error!=''"><p>{{ error }}</p></div>
 
     <div class="btn-submit">
       <a [routerLink]="['/adminMembers']" style="color:#FB0000">
@@ -101,5 +103,6 @@
   </form>
 
 </div>
+
 
 <app-footer></app-footer>

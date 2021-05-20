@@ -1,19 +1,30 @@
 <app-header-back></app-header-back>
 
+<app-contact-categories></app-contact-categories>
+
 <div class="container">
   <h3>Liste des Contacts</h3>
+  <select class="input" name="reason" [(ngModel)]="selectedOption">
+    <option  value="" >Voir tous les projets</option>
+    <option *ngFor="let category of categories | async"
+            value="{{category.id}}" >{{ category.name }}
+    </option>
+  </select>
 
-  <ul class="list-contact">
-    <li class="contact-card">
-      <p><strong>De :</strong> email </p>
-      <p> <strong>N°tel:</strong> 0505050505</p>
-      <p><strong> objet du message :</strong></p>
+  <ul class="list-contact" *ngFor="let contact of contacts | async">
+
+    <li class="contact-card" *ngIf="filtered(contact)==true">
+      <p><strong>De :</strong> {{ contact.email }} </p>
+      <p><strong>N°tel:</strong> {{ contact.phone }}</p>
+      <p><strong> objet du message : </strong>{{ contact.category.name }}</p>
       <p><strong>Contenu du message :</strong></p>
-      <p>Contenu ici</p>
+      <p>{{ contact.message }} </p>
+
       <div class="btn-center">
-        <button (click)="onDeleteContact()" id="deleteContactBtn">Supprimer</button>
+        <button (click)="onDeleteContact(contact.id)" id="deleteContactBtn">Supprimer</button>
       </div>
     </li>
+
   </ul>
 </div>
 

@@ -1,0 +1,28 @@
+<h3>Liste des Categories</h3>
+
+<ul *ngFor="let category of categories |async">
+
+  <li>{{ category.name }}</li>
+  <div class="buttons-card">
+    <button (click)="onDeleteCategory(category)" id="deleteCategoryBtn">Supprimer</button>
+  </div>
+
+</ul>
+<form [formGroup]="categoryForm" (ngSubmit)="onAddCategory()">
+
+  <div class="form-block">
+    <div class="form-input" >
+      <input type="text" class="form-control" formControlName="name">
+      <div class="error-form" *ngIf="name && name.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.hasError('required')">
+          Le nom de la catégorie est obligatoire.
+        </div>
+        <div *ngIf="name.hasError('pattern')">
+          Le nom ne peut contenir que des lettres.
+        </div>
+      </div>
+    </div>
+  </div>
+
+<button type="submit" [disabled]="categoryForm.invalid">Ajouter une Catégorie</button>
+</form>

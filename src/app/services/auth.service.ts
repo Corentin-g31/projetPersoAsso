@@ -3,10 +3,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Admin} from '../model/admin.model';
 import {Observable} from 'rxjs';
 import {shareReplay} from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
-
-// const LOGIN_URL = 'http://bsolidarite.corentin-gibrat.fr/api/login_check';
-const LOCAL_URL = 'https://localhost:8000/api/login_check';
+const URL = environment.URLEndPoint;
 
 @Injectable()
 
@@ -19,7 +18,7 @@ export class AuthService{
 
 
   login(username: string, password: string){
-    return this.http.post(LOCAL_URL, {username, password},{ observe: 'response', withCredentials: true });
+    return this.http.post(URL+"/login_check", {username, password},{ observe: 'response', withCredentials: true });
   }
 
 }

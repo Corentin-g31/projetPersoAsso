@@ -13,8 +13,9 @@ export class AddMemberComponent implements OnInit {
   member: Member;
   createMemberForm: FormGroup;
   imageSrc: string = '';
+  error: string = '';
 
-  constructor(private membersService: MembersService, private route: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor(private membersService: MembersService, private route: ActivatedRoute, private formBuilder: FormBuilder,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -44,19 +45,27 @@ export class AddMemberComponent implements OnInit {
 
   onAddMember() {
     const formValue = this.createMemberForm.value;
-    const changeMember = new Member(
-      formValue['surname'],
-      formValue['name'],
-      formValue['description'],
-      formValue['phone'],
-      formValue['email'],
-      formValue['photo']
-    )
-    if(this.imageSrc != ""){
-      changeMember.photo = this.imageSrc;
+    this.member.surname = formValue['surname'];
+    this.member.name = formValue['name'];
+    this.member.description = formValue['description'];
+    this.member.phone = formValue['phone'];
+    this.member.email = formValue['email'];
+    if(this.imageSrc !=""){
+      this.member.photo = this.imageSrc;
     }
-    changeMember.id= this.member.id;
-    this.membersService.addMember(changeMember)
+
+    this.membersService.addMember(this.member).subscribe(
+      (data)=>{
+        console.log(data)
+      },
+      (e)=>{
+        const err = JSON.parse(e.error);
+        this.error = err.detail;
+      },
+      ()=>{
+        this.router.navigate(['/adminMembers']);
+      }
+    )
   }
 
 

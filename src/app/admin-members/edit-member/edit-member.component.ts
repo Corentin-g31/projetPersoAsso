@@ -16,15 +16,16 @@ export class EditMemberComponent implements OnInit {
   memberForm: FormGroup;
   imageSrc: string = '';
 
-  constructor(private membersService: MembersService, private route: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor(private membersService: MembersService, private route: ActivatedRoute, private formBuilder: FormBuilder) {
+    this.initForm();
+  }
 
   ngOnInit(): void {
-
-    this.initForm()
 
     this.membersService.getMember(+this.route.snapshot.params['id']).then(
       (member:Member) =>{
         this.member= member;
+        this.memberForm.patchValue(member);
       }
     )
 
@@ -38,6 +39,7 @@ export class EditMemberComponent implements OnInit {
 
   initForm(){
     this.memberForm = this.formBuilder.group({
+      id: [],
       surname: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       name: ['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       description: ['', [Validators.required,Validators.maxLength(130)]],
@@ -47,19 +49,12 @@ export class EditMemberComponent implements OnInit {
   }
 
   onEditMember() {
-    const formValue = this.memberForm.value;
-    const changeMember = new Member(
-      formValue['surname'],
-      formValue['name'],
-      formValue['description'],
-      formValue['phone'],
-      formValue['email'],
-      formValue['photo']
-    )
+    let changeMember: Member = this.memberForm.getRawValue();
+
     if(this.imageSrc != ""){
       changeMember.photo = this.imageSrc;
     }
-    changeMember.id= this.member.id;
+
     this.membersService.changeMember(changeMember)
   }
 

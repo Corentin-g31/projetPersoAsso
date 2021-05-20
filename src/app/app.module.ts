@@ -14,7 +14,7 @@ import { AuthService } from './services/auth.service';
 import { AuthComponent } from './auth/auth.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 import { WhoAreWeBlockComponent } from './who-are-we-block/who-are-we-block.component';
@@ -33,6 +33,9 @@ import {EditMemberComponent} from './admin-members/edit-member/edit-member.compo
 import { AddMemberComponent } from './admin-members/add-member/add-member.component';
 import { HeaderBackComponent } from './back-office-home/header-back/header-back.component';
 import { AdminContactComponent } from './admin-contact/admin-contact.component';
+import {ContactService} from './services/contact.service';
+import { ContactCategoriesComponent } from './admin-contact/contact-categories/contact-categories.component';
+import {CategoryService} from './services/category.service';
 
 
 
@@ -77,6 +80,7 @@ const routes: Routes = [
     AddMemberComponent,
     HeaderBackComponent,
     AdminContactComponent,
+    ContactCategoriesComponent,
 
   ],
   imports: [
@@ -86,9 +90,10 @@ const routes: Routes = [
     CarouselModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [AuthService, ProjectsService, MembersService,AuthGuard],
+  providers: [AuthService, ProjectsService, MembersService,AuthGuard, ContactService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

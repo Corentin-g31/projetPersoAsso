@@ -4,8 +4,9 @@ import {Observable, Subject} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
-const URL = 'https://localhost:8000';
+const URL = environment.URLEndPoint;
 
 @Injectable()
 export class MembersService {
@@ -16,20 +17,20 @@ export class MembersService {
   }
 
   saveMembers(){
-    this.http.put(URL + "/api/member", this.members,{ withCredentials: true });
+    this.http.put(URL + "/member", this.members,{ withCredentials: true });
   }
 
   getMembers(){
-    return this.http.get<Member[]>(URL +"/api/members", { withCredentials:true});
+    return this.http.get<Member[]>(URL +"/members", { withCredentials:true});
   }
 
   getMember(id:number) {
-    return this.http.get<Member>(URL +"/api/member/"+id, { withCredentials:true})
+    return this.http.get<Member>(URL +"/member/"+id, { withCredentials:true})
       .toPromise();
   }
 
   changeMember(member: Member){
-   return this.http.put(URL + "/api/member/"+member.id, JSON.stringify(member),{ withCredentials: true,responseType: 'text'})
+   return this.http.put(URL + "/member/"+member.id, JSON.stringify(member),{ withCredentials: true,responseType: 'text'})
      .subscribe(
        (data)=>{
          console.log(data)
@@ -45,25 +46,13 @@ export class MembersService {
   }
 
   removeMember(member: Member) {
-    console.log(member.id);
-    console.log(URL + "/api/member/"+member.id);
-    return this.http.delete(URL + "/api/member/"+member.id,{ withCredentials: true,responseType: 'text'})
+    return this.http.delete(URL + "/member/"+member.id,{ withCredentials: true,responseType: 'text'})
 
   }
 
 
   addMember(member: Member) {
-    return this.http.post(URL + "/api/member", JSON.stringify(member),{ withCredentials: true,responseType: 'text'})
-      .subscribe(
-        (data)=>{
-          console.log(data)
-        },
-        (e)=>{
-          console.log(e);
-        },
-        ()=>{
-          this.router.navigate(['/adminMembers']);
-        }
-      )
+    return this.http.post(URL + "/member", member,{ withCredentials: true,responseType: 'text'})
+
   }
 }
