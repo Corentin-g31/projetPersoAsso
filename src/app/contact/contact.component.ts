@@ -30,7 +30,7 @@ export class ContactComponent implements OnInit {
   get message(): AbstractControl | null { return this.createContactForm.get('message'); }
   get phone(): AbstractControl | null { return this.createContactForm.get('phone'); }
   get email(): AbstractControl | null { return this.createContactForm.get('email'); }
-  get category(): AbstractControl | null{ return this.createContactForm.get('category'); }
+  get category(){ return this.createContactForm.get('category'); }
 
   initForm(){
     this.createContactForm = this.formBuilder.group({

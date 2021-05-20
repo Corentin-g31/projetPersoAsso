@@ -14,7 +14,7 @@ export class ProjectViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.projects = this.projectService.projects;
+    // this.projects = this.projectService.projects;
   }
 
 }

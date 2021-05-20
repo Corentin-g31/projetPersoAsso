@@ -33,6 +33,7 @@ import { ContactCategoriesComponent } from './admin-contact/contact-categories/c
 import { CategoryService } from './services/category.service';
 import { AdminProjectsComponent } from './admin-projects/admin-projects.component';
 import { AddProjectComponent } from './admin-projects/add-project/add-project.component';
+import {EditorModule} from 'primeng/editor';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -47,6 +48,8 @@ const routes: Routes = [
   { path: 'adminMembers/editMember/:id', canActivate: [AuthGuard], component: EditMemberComponent },
   { path: 'adminMembers/addMember', canActivate: [AuthGuard], component: AddMemberComponent },
   { path: 'adminContact', canActivate: [AuthGuard], component: AdminContactComponent },
+  { path: 'adminProjects', canActivate: [AuthGuard], component: AdminProjectsComponent },
+  { path: 'adminProjects/addProject', canActivate: [AuthGuard], component: AddProjectComponent },
   { path: 'page404', component: Page404Component },
   { path: '**', redirectTo: '/page404' },
 ];
@@ -83,7 +86,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    EditorModule
   ],
   providers: [AuthService, ProjectsService, MembersService, AuthGuard, ContactService, CategoryService],
   bootstrap: [AppComponent]

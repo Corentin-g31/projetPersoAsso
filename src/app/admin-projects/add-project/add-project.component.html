@@ -1,1 +1,35 @@
-<p>add-project works!</p>
+<h5>Ajout d'un projet</h5>
+
+<form [formGroup]="createProjectForm" (ngSubmit)="onAddProject()">
+  <div class="form-block">
+    <label>Nom du projet </label>
+    <div class="form-input" >
+      <input type="text" class="form-control" formControlName="name" >
+      <div class="error-form" *ngIf="name && name.invalid && (name.dirty || name.touched)">
+        <div *ngIf="name.hasError('required')">
+          Le nom est obligatoire.
+        </div>
+        <div *ngIf="name.hasError('pattern')">
+          Le nom ne peut contenir que des lettres.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-block">
+    <label>Description</label>
+    <div class="form-input">
+      <p-editor formControlName="description" [style]="{'height':'320px'}"></p-editor>
+
+      <div class="error-form" *ngIf=" description && description.invalid && (description.dirty || description.touched)">
+        <div *ngIf="description.hasError('required')">
+          La description est obligatoire.
+        </div>
+        <div *ngIf="description.hasError('maxlength')">
+          La description est trop longue.
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="createProjectForm.invalid">Ajouter</button>
+</form>

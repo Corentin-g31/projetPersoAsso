@@ -7,14 +7,17 @@ import {Project} from '../model/project.model';
 const URL = environment.URLEndPoint;
 
 @Injectable()
-export class MembersService {
+export class ProjectsService {
 
 
   constructor(private http: HttpClient) {
   }
 
   getProjects(): Observable<Project[]>{
-    return this.http.get(URL+ '/public/project');
+    return this.http.get<Project[]>(URL+ '/public/project');
   }
 
+  addProject(project: Project) {
+    return this.http.post(URL+'/project', project, {withCredentials: true})
+  }
 }

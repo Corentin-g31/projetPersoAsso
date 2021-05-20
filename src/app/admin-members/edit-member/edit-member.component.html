@@ -39,6 +39,7 @@
     <div class="form-block">
       <label>Description</label>
       <div class="form-input">
+
         <textarea row="4" formControlName="description"></textarea>
         <div class="error-form" *ngIf=" description && description.invalid && (description.dirty || description.touched)">
           <div *ngIf="description.hasError('required')">
