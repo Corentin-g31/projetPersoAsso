@@ -3,12 +3,9 @@
 <div class="container">
   <ul>
     <li>
-      <app-project *ngFor="let project of projects; let i = index"
-                   [indexProject]="i"
-                   [projectName]="project.name"
-                   [projectImg]="project.img"
-                   [id] = "project.id"
-      ></app-project>
+      <app-project *ngFor="let project of projects; let i = index" [indexProject]="i" [projectName]="project.name"
+        [projectImg]="project.img" [id]="project.id">
+      </app-project>
     <li>
   </ul>
 </div>

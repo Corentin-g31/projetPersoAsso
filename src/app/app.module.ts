@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,12 +13,9 @@ import { AuthComponent } from './auth/auth.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import { WhoAreWeBlockComponent } from './who-are-we-block/who-are-we-block.component';
 import { ProjectBlockComponent } from './project-block/project-block.component';
 import { ProjectComponent } from './project/project.component';
-
 import { ProjectsService } from './services/projects.service';
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { BackOfficeHomeComponent } from './back-office-home/back-office-home.component';
@@ -36,10 +32,6 @@ import { ContactService } from './services/contact.service';
 import { ContactCategoriesComponent } from './admin-contact/contact-categories/contact-categories.component';
 import { CategoryService } from './services/category.service';
 
-
-
-
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -55,8 +47,7 @@ const routes: Routes = [
   { path: 'adminContact', canActivate: [AuthGuard], component: AdminContactComponent },
   { path: 'page404', component: Page404Component },
   { path: '**', redirectTo: '/page404' },
-]
-
+];
 
 @NgModule({
   declarations: [
@@ -80,7 +71,6 @@ const routes: Routes = [
     HeaderBackComponent,
     AdminContactComponent,
     ContactCategoriesComponent,
-
   ],
   imports: [
     BrowserModule,

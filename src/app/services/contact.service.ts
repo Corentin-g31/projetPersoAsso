@@ -14,11 +14,11 @@ export class ContactService {
   constructor(private http: HttpClient) {
   }
 
-  getContacts() {
-    return this.http.get<Contact[]>(URL +"/contact", { withCredentials:true});
+  getContacts(): Observable<Contact[]> {
+    return this.http.get<Contact[]>(URL + '/contact', { withCredentials: true});
   }
 
-  deleteContact(id:number){
-    return this.http.delete(URL+'/contact/'+id, {withCredentials:true, responseType: 'text'});
+  deleteContact(id: number): Observable<any>{
+    return this.http.delete(URL + '/contact/' + id, {withCredentials: true, responseType: 'text'});
   }
 }

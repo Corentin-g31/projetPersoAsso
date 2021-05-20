@@ -1,7 +1,7 @@
-import {Category} from './category.model';
+import { Category } from './category.model';
 
 export class Contact {
-  id:number;
+  id: number;
   email: string;
   phone: string;
   message: string;
