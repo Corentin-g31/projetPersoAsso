@@ -12,7 +12,7 @@ import {CategoryService} from '../services/category.service';
   styleUrls: ['./admin-contact.component.scss']
 })
 export class AdminContactComponent implements OnInit {
-  contacts : Observable<Contact[]>;
+  contacts: Observable<Contact[]>;
   categories: Observable<Category[]>
   selectedOption: any;
   constructor(private contactService: ContactService, private categoryService: CategoryService) { }
@@ -20,7 +20,7 @@ export class AdminContactComponent implements OnInit {
   ngOnInit(): void {
     this.contacts = this.contactService.getContacts();
     this.categories = this.categoryService.getCategories();
-    this.selectedOption = "";
+    this.selectedOption = '';
   }
 
   onDeleteContact(id:number) {
