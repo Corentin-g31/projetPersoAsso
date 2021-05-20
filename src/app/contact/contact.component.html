@@ -1,25 +1,37 @@
 <app-header></app-header>
 
 <div class="container">
-    <h2>Contact</h2>
-    <form action="" [formGroup]="createContactForm" (ngSubmit)="onAddContact()">
+  <h2>Contact</h2>
+  <form action="" [formGroup]="createContactForm" (ngSubmit)="onAddContact()">
     <input type="email" name="email" id="email" class="input" placeholder="email" formControlName="email">
 
-    <input type="phone" name="phone" id="phone" class="input"  placeholder="Numero de téléphone (facultatif)" formControlName="phone">
+    <input type="phone" name="phone" id="phone" class="input" placeholder="Numero de téléphone (facultatif)"
+           formControlName="phone">
 
-
-    <select class="input" name="reason">
-        <option selected hidden>Pour quelle raison souhaitez vous nous contacter ?</option>
+    <section [formGroup]="category">
+      <select class="input" name="reason" formControlName="id">
+        <option selected hidden value="">Pour quelle raison souhaitez vous nous contacter ?</option>
         <option *ngFor="let category of categories | async"
-                value="{{category.id}}" >{{ category.name }}
-      </option>
-    </select>
+                [ngValue]="category.id">
+          {{ category.name }}
+        </option>
+        <div class="error-form" *ngIf="category && category.invalid && (category.dirty || category.touched)">
+          <div *ngIf="category.hasError('required')">
+            Vous devez choisir un objet.
+          </div>
+        </div>
+      </select>
+    </section>
 
-    <textarea class="input" name="text" id="" cols="30" rows="10" placeholder="Votre message" formControlName="message"></textarea>
 
-    </form>
 
-  <button class="button-full">Envoyer</button>
+    <textarea class="input" name="text" id="" cols="30" rows="10" placeholder="Votre message"
+              formControlName="message"></textarea>
+
+    <button type="submit "class="button-full" [disabled]="createContactForm.invalid">Envoyer</button>
+  </form>
+
+
 </div>
 
 <app-footer></app-footer>

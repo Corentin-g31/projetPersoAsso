@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MembersService } from '../../services/members.service';
-import { Member } from '../../model/member.model';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Member} from '../../model/member.model';
 
 @Component({
   selector: 'app-edit-member',

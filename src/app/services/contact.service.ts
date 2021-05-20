@@ -1,9 +1,10 @@
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
-import {Contact} from '../model/contact.model';
-import {Member} from '../model/member.model';
+
+
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {Contact} from '../model/contact.model';
 
 
 const URL = environment.URLEndPoint;
@@ -20,5 +21,9 @@ export class ContactService {
 
   deleteContact(id: number): Observable<any>{
     return this.http.delete(URL + '/contact/' + id, {withCredentials: true, responseType: 'text'});
+  }
+
+  addContact(contact: Contact) {
+    return this.http.post(URL+'/public/contact', contact );
   }
 }

@@ -1,0 +1,30 @@
+<app-header-back></app-header-back>
+
+<div class="container">
+  <div class="title-add">
+    <h3>Liste des Membres</h3>
+    <a [routerLink]="['addProject']" class="button-full">
+      Ajouter un Projet
+    </a>
+  </div>
+
+  <ul class="cards-list">
+    <li *ngFor="let project of projects | async; let i = index">
+      <div class="card">
+        <div class="card-img">
+          <img src="{{ project.img}}" style="max-width:300px;max-height:250px" alt="photo project">
+        </div>
+        <div class="card-presentation">
+          <p>{{ project.name }}</p>
+          <p>Tel: {{ project.description }}</p>
+          <div class="buttons-card">
+            <button (click)="onDeleteProject(project)" id="deleteMemberBtn">Supprimer</button>
+            <button [routerLink]="['editProject', project.id]" id="editProjectBtn">Modifier</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<app-footer></app-footer>

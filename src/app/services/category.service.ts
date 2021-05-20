@@ -1,7 +1,7 @@
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Contact } from '../model/contact.model';
+
 import { Category } from '../model/category.model';
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class CategoryService {
   }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(URL + '/categories', { withCredentials: true });
+    return this.http.get<Category[]>(URL + '/public/categories', { withCredentials: true });
   }
 
   addCategory(category: Category): Observable<any> {

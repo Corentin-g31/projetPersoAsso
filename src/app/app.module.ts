@@ -31,6 +31,8 @@ import { AdminContactComponent } from './admin-contact/admin-contact.component';
 import { ContactService } from './services/contact.service';
 import { ContactCategoriesComponent } from './admin-contact/contact-categories/contact-categories.component';
 import { CategoryService } from './services/category.service';
+import { AdminProjectsComponent } from './admin-projects/admin-projects.component';
+import { AddProjectComponent } from './admin-projects/add-project/add-project.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -71,6 +73,8 @@ const routes: Routes = [
     HeaderBackComponent,
     AdminContactComponent,
     ContactCategoriesComponent,
+    AdminProjectsComponent,
+    AddProjectComponent,
   ],
   imports: [
     BrowserModule,
