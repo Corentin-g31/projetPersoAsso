@@ -37,12 +37,12 @@ export class AdminContactComponent implements OnInit {
     );
   }
 
-  filtered(contact: Contact): boolean {
+  filtered(contact: Contact) {
     if (this.selectedOption === '') {
       return true;
-    } else if (contact.category.id === this.selectedOption) {
+    } else if (+contact.category.id === +this.selectedOption) {
       return true;
     }
-    return false;
+
   }
 }

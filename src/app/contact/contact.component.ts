@@ -18,7 +18,8 @@ export class ContactComponent implements OnInit {
   createContactForm: FormGroup;
   categories: Observable<Category[]>;
 
-  constructor(private contactService: ContactService,private formBuilder: FormBuilder, private categoryServce: CategoryService) { }
+  constructor(private contactService: ContactService,private formBuilder: FormBuilder,
+              private categoryServce: CategoryService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -30,7 +31,7 @@ export class ContactComponent implements OnInit {
   get message(): AbstractControl | null { return this.createContactForm.get('message'); }
   get phone(): AbstractControl | null { return this.createContactForm.get('phone'); }
   get email(): AbstractControl | null { return this.createContactForm.get('email'); }
-  get category(){ return this.createContactForm.get('category'); }
+  get category(){ return this.createContactForm.get('category') as FormGroup; }
 
   initForm(){
     this.createContactForm = this.formBuilder.group({
